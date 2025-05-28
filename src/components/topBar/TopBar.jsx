@@ -8,14 +8,19 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchPodcasts } from "../store/resultsApiSlice";
+import { fetchPodcasts, resetPodcasts, searchResult } from "../store/resultsApiSlice";
 
 
 const TopBar = () => {
   const dispatch = useDispatch();
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [placeholderText, setPlaceholderText] = useState("هنا تلقى ما يتجاوز ٧٠ مليون بودكاست وحلقات");
+
+  useEffect(() => {
+    dispatch(searchResult('فنجان'));
+  }, [dispatch]);
 
   useEffect(() => {
     const updatePlaceholder = () => {
@@ -26,7 +31,7 @@ const TopBar = () => {
       }
     };
 
-    updatePlaceholder(); // أول مرة
+    updatePlaceholder(); 
     window.addEventListener("resize", updatePlaceholder);
 
     return () => window.removeEventListener("resize", updatePlaceholder);
@@ -55,28 +60,31 @@ function handleMenu(){
           type="text"
           placeholder={placeholderText}
           value={searchTerm}
-          onChange={(e) => {
-            setSearchTerm(e.target.value);
-            dispatch(resetPodcasts());
-          }}
+          onChange={(e) => setSearchTerm(e.target.value)}
           onKeyDown={(e) => {
-            if (e.key === 'Enter' && searchTerm.trim()) {
-              dispatch(fetchPodcasts(searchTerm.trim()));
+            if (e.key === "Enter") {
+              dispatch(searchResult(searchTerm));
+              dispatch(resetPodcasts());
+              dispatch(fetchPodcasts(searchTerm));
             }
           }}
         />
       </div>
       <div className="buttons-container">
-      <Button variant="contained"   color="orange"> إنضم لنا</Button>
-      <Button variant="outlined"   color="orange"> سجل دخول </Button>
-      <IconButton color="orange" onClick={handleMenu}>
-  <FontAwesomeIcon icon={faEllipsisVertical} />
-   </IconButton>
-      </div>
-        <div className="menu-wrapper">
+        <Button variant="contained" color="orange">إنضم لنا</Button>
+        <Button variant="outlined" color="orange">سجل دخول</Button>
+        <IconButton 
+          color="orange" 
+          onClick={handleMenu}
+          aria-controls={menuIsOpen ? 'menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={menuIsOpen ? 'true' : undefined}
+        >
+          <FontAwesomeIcon icon={faEllipsisVertical} />
+        </IconButton>
         <Menu
-          id="demo-positioned-menu"
-          aria-labelledby="demo-positioned-button"
+          id="menu"
+          anchorEl={anchorEl}
           open={menuIsOpen}
           onClose={handleClose}
           anchorOrigin={{
@@ -84,8 +92,13 @@ function handleMenu(){
             horizontal: "left",
           }}
           transformOrigin={{
-            vertical: "top",
+            vertical: "bottom",
             horizontal: "left",
+          }}
+          PaperProps={{
+            sx: {
+              mt: -1
+            }
           }}
           sx={{
             direction: 'rtl',

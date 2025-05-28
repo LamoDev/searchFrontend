@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 
 const Podcasts = () => {
     const [currentPodcasts, setCurrentPodcasts] = useState([]);
-    const { podcasts, isLoading, error, searchTerm } = useSelector(state => state.results);
+    const { podcasts, isLoading, error, searchTerm } = useSelector((state) => state.results);
     
     const defaultPodcasts = [
         {
@@ -160,7 +160,7 @@ const Podcasts = () => {
     return (
         <div className='podcasts-section'>
             <div className="about-result">
-                <h1>نتائج البودكاست المتعلقة بـ {searchTerm}</h1>
+                <h1>نتائج البودكاست المتعلقة بـ "{searchTerm}"</h1>
                 <div className="control">
                     <ChevronRight />
                     <ChevronLeft />

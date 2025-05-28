@@ -1,9 +1,15 @@
 import SingleEpisode from '../../ui/singleEpisode/SingleEpisode'
 import './episodes.css'
+import { useSelector } from 'react-redux'
 
 const Episodes = () => {
-    return <div className='episodes-section'>
-           <h1>نتائج الحلقات  المتعلقة بـ فنجان</h1>
+   
+    const searchTerm  = useSelector(state => state.results.searchTerm);
+
+   
+   return <div className='episodes-section'>
+     
+        <h1>نتائج الحلقات  المتعلقة بـ "{searchTerm}"</h1>
     <div className='episodes-container'>
          <SingleEpisode />
          <SingleEpisode />
@@ -14,8 +20,6 @@ const Episodes = () => {
          <SingleEpisode />      
     </div>
     </div>
-
-
 }
 
 export default Episodes

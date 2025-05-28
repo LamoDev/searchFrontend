@@ -2,6 +2,7 @@ import "./app.css";
 import RightBar from "./components/rightBar/RightBar";
 import TopBar from "./components/topBar/TopBar";
 import Main from "./components/main/Content";
+import Loader from "./components/ui/loader/Loader";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -12,7 +13,7 @@ import axios from "axios";
 
 let cancelAxios = null;
 
-import CircularProgress from '@mui/material/CircularProgress';
+
 
 
 const App = () => {
@@ -35,7 +36,7 @@ const App = () => {
       <RightBar />
       <div className="main-content">
         <TopBar />
-        {isLoading && <CircularProgress style={{color:"#db3b1c"}} />}
+        {isLoading && <Loader />}
         <Main />
       </div>
     </div>
