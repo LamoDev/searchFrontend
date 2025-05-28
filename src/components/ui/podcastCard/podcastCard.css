@@ -6,7 +6,7 @@
     min-height: 200px;
     border-radius: 10px;
     border: 1px solid #b4b4b4;
-    flex: 0 0 auto;
+    flex-shrink: 0;
     transition: transform 0.2s ease;
 }
 
@@ -24,7 +24,8 @@
 
 .podcast-image {
     height: 80%;
-    border-radius: 20px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
     margin-bottom: 10px;
 }
 

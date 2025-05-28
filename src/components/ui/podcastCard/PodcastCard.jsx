@@ -4,16 +4,15 @@
 import './podcastCard.css'
 import { EllipsisVertical } from 'lucide-react';
 
-export default function PodcastCard() {
+export default function PodcastCard({artistName , collectionName , artworkUrl100}) {
   return (
    <div className='card'>
-    {/* <div className='podcast-image'> */}
-    <img  className='podcast-image' src="/images/podcast.png"/>
-    {/* </div> */}
+   
+    <img  className='podcast-image' src={artworkUrl100}/>
     <div className='podcast-details'>
       <div  className="podcast-descr">
-      <a>فنجان مع عبدالرحمن أبومالح</a>
-      <a className="by">ثمانية/ thmanyah</a>
+      <a>{collectionName}</a>
+      <a className="by">{artistName}</a>
       </div>
       <EllipsisVertical />
     </div>

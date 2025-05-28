@@ -6,15 +6,16 @@ import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchPodcasts } from "../store/resultsApiSlice";
 
 
 const TopBar = () => {
-
-
-const [ menuIsOpen , setMenuIsOpen] = useState(false)
-
-const [placeholderText, setPlaceholderText] = useState("هنا تلقى ما يتجاوز ٧٠ مليون بودكاست وحلقات");
+  const dispatch = useDispatch();
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [placeholderText, setPlaceholderText] = useState("هنا تلقى ما يتجاوز ٧٠ مليون بودكاست وحلقات");
 
   useEffect(() => {
     const updatePlaceholder = () => {
@@ -43,12 +44,26 @@ function handleMenu(){
 
   return ( 
     <div className="topbar">
-      <img src="/images/logo.png" alt="Logo" className="logo" />
+      <img src="/images/logo.png" alt="Logo" className="logo" style={{ objectFit: 'contain' }} />
       <div className="search">
-        <FontAwesomeIcon icon={faMagnifyingGlass} />
+        <FontAwesomeIcon 
+          icon={faMagnifyingGlass} 
+          onClick={() => searchTerm.trim() && dispatch(fetchPodcasts(searchTerm.trim()))} 
+          style={{ cursor: 'pointer' }}
+        />
         <input
           type="text"
-          placeholder={placeholderText}     
+          placeholder={placeholderText}
+          value={searchTerm}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+            dispatch(resetPodcasts());
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && searchTerm.trim()) {
+              dispatch(fetchPodcasts(searchTerm.trim()));
+            }
+          }}
         />
       </div>
       <div className="buttons-container">

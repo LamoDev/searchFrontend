@@ -24,35 +24,54 @@
     }
 }
 
+.podcasts-section {
+    width: 100%;
+    max-width: 100%;
+}
+
+.podcast-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 0 -20px;
+    padding: 0 20px;
+}
+
 .podcast-results {
     display: flex;
     flex-direction: row;
     gap: 1.5em;
     overflow-x: scroll;
-    padding: 20px 0;
-    width: 100%;
-    margin-right: -20px; /* Compensate for container padding */
+    padding: 20px;
+    width: max-content;
+    min-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #db3b1c #f1f1f1;
 }
 
 /* Scrollbar Styles */
 .podcast-results::-webkit-scrollbar {
     height: 8px;
-    width: 8px;
 }
 
 .podcast-results::-webkit-scrollbar-track {
-    background: transparent;
+    background: #f1f1f1;
+    border-radius: 4px;
 }
 
 .podcast-results::-webkit-scrollbar-thumb {
-    background-color: #db3b1c;
+    background: #db3b1c;
     border-radius: 4px;
+}
+
+.podcast-results::-webkit-scrollbar-thumb:hover {
+    background: #b62f16;
 }
 
 /* Firefox */
 .podcast-results {
     scrollbar-width: thin;
-    scrollbar-color: #db3b1c transparent;
+    scrollbar-color: #db3b1c #f1f1f1;
 }
 
 
