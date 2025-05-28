@@ -1,0 +1,36 @@
+.card {
+    display: flex;
+    background-color: #f1f1f1;
+    flex-direction: column;
+    width: 200px;
+    min-height: 200px;
+    border-radius: 10px;
+    border: 1px solid #b4b4b4;
+    flex: 0 0 auto;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+@media screen and (max-width: 480px) {
+    .card {
+        width: 160px;
+        min-height: 180px;
+    }
+}
+
+.podcast-image {
+    height: 80%;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.podcast-details{
+    display: flex;
+    justify-content: space-between;
+}
+
+

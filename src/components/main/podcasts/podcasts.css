@@ -1,0 +1,97 @@
+.podcast-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .podcast-container {
+        padding: 0 10px;
+    }
+
+    .about-result {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .about-result h1 {
+        font-size: 1rem;
+    }
+
+    .control {
+        display: none;
+    }
+}
+
+.podcast-results {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+    overflow-x: scroll;
+    padding: 20px 0;
+    width: 100%;
+    margin-right: -20px; /* Compensate for container padding */
+}
+
+/* Scrollbar Styles */
+.podcast-results::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+.podcast-results::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.podcast-results::-webkit-scrollbar-thumb {
+    background-color: #db3b1c;
+    border-radius: 4px;
+}
+
+/* Firefox */
+.podcast-results {
+    scrollbar-width: thin;
+    scrollbar-color: #db3b1c transparent;
+}
+
+
+
+
+
+.about-result h1{
+    font-size: 1.2rem;
+    display: block;
+    font-family: 'IBM2';
+
+}
+.about-result{
+    display: flex;
+    justify-content: space-between;
+    margin-top:20px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #f1f1f1;
+}
+.control{
+   display: flex;
+}
+
+.podcast-descr {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+}
+
+.podcast-descr a{
+    font-size: 0.75rem;
+    margin-right: 5px;
+    font-family: 'IBM2';
+}
+.podcast-descr a:hover{
+    text-decoration: underline;  
+}
+.by{
+    color:#db3b1c ;
+}

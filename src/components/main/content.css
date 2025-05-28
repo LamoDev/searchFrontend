@@ -1,0 +1,17 @@
+.content{
+    font-family: 'IBM';
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    flex: 1;
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        padding: 10px;
+        width: 100%;
+    }
+}
