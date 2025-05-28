@@ -1,0 +1,32 @@
+.topbar{
+    margin: 16px 0px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-left: 10px;
+
+}
+.search{
+    flex:1 ;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: rgb(99, 99, 99);
+}
+
+.search input{
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  font-family: 'IBM';
+  outline: none;
+ 
+}
+.buttons-container{
+    display: flex;
+    gap: 10px;
+    
+}
