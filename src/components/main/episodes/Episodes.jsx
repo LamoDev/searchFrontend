@@ -12,12 +12,7 @@ const Episodes = () => {
         <h1>نتائج الحلقات  المتعلقة بـ "{searchTerm}"</h1>
     <div className='episodes-container'>
          <SingleEpisode />
-         <SingleEpisode />
-         <SingleEpisode />
-         <SingleEpisode />
-         <SingleEpisode />
-         <SingleEpisode />
-         <SingleEpisode />      
+     
     </div>
     </div>
 }

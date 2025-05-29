@@ -5,6 +5,7 @@
     gap: 16px;
     background-color: white;
     margin-bottom: 20px;
+ 
 }
 .topbar .logo{
     display: none;
@@ -12,7 +13,7 @@
     width: auto;
 }
 .search{
-    width: 60%;
+    width: 70%;
     background-color: #f1f1f1;
     border-radius: 20px;
     padding: 12px;
@@ -36,7 +37,7 @@
     
 }
 
-/* Tablet and smaller */
+
 @media screen and (max-width: 768px) {
     .topbar .logo {
         display: block;

@@ -4,9 +4,6 @@ import Podcasts from "./podcasts/Podcasts";
 
 const Content = () => {
 
-
-
-
   return (
     <div className="content">
       <Podcasts />

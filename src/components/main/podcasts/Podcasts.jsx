@@ -161,10 +161,6 @@ const Podcasts = () => {
         <div className='podcasts-section'>
             <div className="about-result">
                 <h1>نتائج البودكاست المتعلقة بـ "{searchTerm}"</h1>
-                <div className="control">
-                    <ChevronRight />
-                    <ChevronLeft />
-                </div>
             </div>
             <div className="podcast-container">
                 <div className="podcast-results">
